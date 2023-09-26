@@ -14,7 +14,7 @@
   <table th:fragment="jobs" th:each="job : ${jobs}" class="job-listing">
     <tr>
       <td th:text="ID"></td>
-      <td th:text="${job.getId()}"></td>
+      <td th:text="${job.getId()}" class="id-number"></td>
     </tr>
     <tr>
       <td th:text="Name"></td>
@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <td th:text="Employer"></td>
-      <td th:text="${job.getEmployer()}"></td>
+      <td th:text="${job.getEmployer()}" class="employer"></td>
     </tr>
     <tr>
       <td th:text="Location"></td>

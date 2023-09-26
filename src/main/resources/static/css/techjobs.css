@@ -60,3 +60,11 @@ div.job-listing {
     width: 80%;
     background-color: #e4e4e4;
 }
+
+.employer {
+    font-style: italic;
+}
+
+.id-number {
+    font-weight: 800;
+}
