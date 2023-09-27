@@ -61,10 +61,22 @@ div.job-listing {
     background-color: #e4e4e4;
 }
 
-.employer {
-    font-style: italic;
-}
-
 .id-number {
     font-weight: 800;
 }
+
+.job-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #00008B;
+}
+
+.employer {
+    font-style: italic;
+    font-size: 15px;
+}
+
+.location {
+    text-transform: uppercase;
+}
+
