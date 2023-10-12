@@ -13,21 +13,18 @@
   <form th:action="@{/search/results}" method = "post" th:object="${search}">
     <h2>Search by:</h2>
 
-    <p>
-        <th:block th:each="column : ${columns}">
-            <input type="radio"
-                   th:value="${column.key}"
-                   th:id="${column.key}"
-                   th:field="*{searchType}" />
-            <label th:for="${column.key}" th:text="${column.value}"></label>
-        </th:block>
+    <th:block th:each="column : ${columns}">
+        <input type="radio"
+               th:value="${column.key}"
+               th:id="${column.key}"
+               th:field="*{searchType}" />
+        <label th:for="${column.key}" th:text="${column.value}"></label>
+    </th:block>
 
-    </p>
-
-    <p>
-      <label for="searchTerm">Keyword:</label>
-      <input type="text" name="searchTerm" id="searchTerm" />
-    </p>
+    <div id="keyword">
+        <label for="searchTerm">Keyword:</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
+    </div>
 
     <input type="submit" value="Search" />
   </form>

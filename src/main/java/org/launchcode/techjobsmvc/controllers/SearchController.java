@@ -11,17 +11,15 @@ import java.util.ArrayList;
 
 import static org.launchcode.techjobsmvc.controllers.ListController.columnChoices;
 
-
 /**
  * Created by LaunchCode
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController {
 
     @GetMapping(value = "")
     public String search(Model model) {
-        model.addAttribute("columns", columnChoices);
         model.addAttribute("search", new Search());
         return "search";
     }
@@ -38,7 +36,6 @@ public class SearchController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
         }
 
-        model.addAttribute("columns", columnChoices);
         model.addAttribute("jobs", jobs);
         return "search";
     }
