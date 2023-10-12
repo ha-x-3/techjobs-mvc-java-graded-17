@@ -3,6 +3,7 @@ package org.launchcode.techjobsmvc;
 import mockit.Tested;
 import org.junit.jupiter.api.Test;
 import org.launchcode.techjobsmvc.controllers.SearchController;
+import org.launchcode.techjobsmvc.models.Search;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +33,7 @@ public class TestTaskThree {
         Method displaySearchResultsMethod = null;
 
         try {
-            displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class);
+            displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class, Search.class);
         } catch (NoSuchMethodException e) {
             fail("SearchController does not have a displaySearchResults method");
         }
@@ -44,7 +45,7 @@ public class TestTaskThree {
     @Test
     public void testDisplaySearchResultsUsesCorrectAnnotation() throws ClassNotFoundException, NoSuchMethodException {
         Class searchControllerClass = Class.forName("org.launchcode.techjobsmvc.controllers.SearchController");
-        Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class);
+        Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class, Search.class);
         PostMapping annotation = displaySearchResultsMethod.getDeclaredAnnotation(PostMapping.class);
         assertNotNull(annotation, "displaySearchResults should use @PostMapping");
         assertEquals(annotation.value()[0], "results", "displaySearchResults should be at the route /search/results");
@@ -56,7 +57,7 @@ public class TestTaskThree {
     @Test
     public void testDisplaySearchResultsHasCorrectParameterAnnotations() throws ClassNotFoundException, NoSuchMethodException {
         Class searchControllerClass = Class.forName("org.launchcode.techjobsmvc.controllers.SearchController");
-        Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class);
+        Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class, Search.class);
         Annotation[][] parameterAnnotations = displaySearchResultsMethod.getParameterAnnotations();
         assertEquals(parameterAnnotations[0].length, 0, "The first parameter to displaySearchResults should have no annotations");
         assertEquals(parameterAnnotations[1].length, 1, "The second parameter to displaySearchResults should have 1 annotation");
@@ -71,7 +72,7 @@ public class TestTaskThree {
     @Test
     public void testDisplaySearchResultsHasCorrectParameterNames() throws ClassNotFoundException, NoSuchMethodException {
         Class searchControllerClass = Class.forName("org.launchcode.techjobsmvc.controllers.SearchController");
-        Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class);
+        Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class, Search.class);
         Parameter[] parameters = displaySearchResultsMethod.getParameters();
         assertEquals("searchType", parameters[1].getName());
         assertEquals("searchTerm", parameters[2].getName());
