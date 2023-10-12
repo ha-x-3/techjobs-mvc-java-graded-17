@@ -68,7 +68,7 @@ div.job-listing {
 .job-name {
     font-size: 15px;
     font-weight: 700;
-    color: #00008B;
+    color: #000058;
 }
 
 .employer {
@@ -79,4 +79,3 @@ div.job-listing {
 .location {
     text-transform: uppercase;
 }
-
