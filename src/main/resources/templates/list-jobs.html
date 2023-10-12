@@ -10,59 +10,8 @@
 
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-  <!-- Task #1 - Use a loop to display job results in a table. -->
-<!--  <table th:fragment="jobs" th:each="job : ${jobs}" class="job-listing">-->
-<!--    <tr>-->
-<!--      <td th:text="ID"></td>-->
-<!--      <td th:text="${job.getId()}" class="id-number"></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td th:text="Name"></td>-->
-<!--      <td th:text="${job.getName()}" class="job-name"></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td th:text="Employer"></td>-->
-<!--      <td th:text="${job.getEmployer()}" class="employer" ></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td th:text="Location"></td>-->
-<!--      <td th:text="${job.getLocation()}" class="location"></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td th:text="PositionType"></td>-->
-<!--      <td th:text="${job.getPositionType()}"></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td th:text="Skill"></td>-->
-<!--      <td th:text="${job.getCoreCompetency()}"></td>-->
-<!--    </tr>-->
-<!--  </table>-->
-<!-- Bonus Mission #3 - Modified tests to pass per Github-->
-  <table th:fragment="jobs" th:each="job : ${jobs}" class="job-listing">
-    <tr>
-      <td th:text="ID"></td>
-      <td th:text="${job.getId()}" class="id-number"></td>
-    </tr>
-    <tr>
-      <td th:text="Name"></td>
-      <td th:text="${job.getName()}" class="job-name"></td>
-    </tr>
-    <tr>
-      <td th:text="Employer"></td>
-      <td class="employer" ><a th:href="@{/list/jobs(column=${'employer'},value=${job.getEmployer()})}" th:text="${job.getEmployer()}"></a></td>
-    </tr>
-    <tr>
-      <td th:text="Location"></td>
-      <td class="location"><a th:href="@{/list/jobs(column=${'location'},value=${job.getLocation()})}" th:text="${job.getLocation()}"></a></td>
-    </tr>
-    <tr>
-      <td th:text="PositionType"></td>
-      <td><a th:href="@{/list/jobs(column=${'positionType'},value=${job.getPositionType()})}" th:text="${job.getPositionType()}"></a></td>
-    </tr>
-    <tr>
-      <td th:text="Skill"></td>
-      <td><a th:href="@{/list/jobs(column=${'coreCompetency'},value=${job.getCoreCompetency()})}" th:text="${job.getCoreCompetency()}"></a></td>
-    </tr>
+<!-- Task #1 See fragments.html-->
+  <table th:replace="~{fragments :: jobs}">
   </table>
 
 </div>
