@@ -18,25 +18,11 @@ import java.util.HashMap;
 @RequestMapping(value = "list")
 public class ListController extends TechJobsController {
 
-    static HashMap<String, Object> tableChoices = new HashMap<>();
 
-    public ListController () {
-        tableChoices.put("employer", JobData.getAllEmployers());
-        tableChoices.put("location", JobData.getAllLocations());
-        tableChoices.put("positionType", JobData.getAllPositionTypes());
-        tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
-    }
+    public ListController () {    }
 
     @GetMapping(value = "")
-    public String list(Model model) {
-        model.addAttribute("tableChoices", tableChoices);
-        model.addAttribute("employers", JobData.getAllEmployers());
-        model.addAttribute("locations", JobData.getAllLocations());
-        model.addAttribute("positions", JobData.getAllPositionTypes());
-        model.addAttribute("skills", JobData.getAllCoreCompetency());
-
-        return "list";
-    }
+    public String list(Model model) { return "list"; }
 
     @GetMapping(value = "jobs")
     public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam(required = false) String value) {

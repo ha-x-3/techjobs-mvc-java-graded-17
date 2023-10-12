@@ -20,12 +20,12 @@ public class SearchController extends TechJobsController {
 
     @GetMapping(value = "")
     public String search(Model model) {
-        model.addAttribute("search", new Search());
+        model.addAttribute("search", new Search());  //Bonus #1
         return "search";
     }
 
     // Task #3 - Create a handler to process a search request and render the updated search view.
-    @PostMapping(value = "results")
+    @PostMapping(value = "results")                                                                                         //Bonus #1
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm, @ModelAttribute Search search) {
         ArrayList<Job> jobs = new ArrayList<>();
         if (searchTerm.equals("all") || searchTerm.equals("") || searchTerm == null) {
